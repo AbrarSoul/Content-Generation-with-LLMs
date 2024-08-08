@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automated Blog Post Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Automated Blog Post Generator</h1>
+        <form action="/generate" method="post">
+            <label for="topic">Enter a topic:</label>
+            <input type="text" id="topic" name="topic" required>
+            <button type="submit">Generate</button>
+        </form>
+        {% if topic %}
+            <h2>Blog Post on: {{ topic }}</h2>
+            <div class="blog-post">
+                {{ blog_post }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
